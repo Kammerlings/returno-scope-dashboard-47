@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ComposedChart, Line, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Scatter } from 'recharts';
+import { ComposedChart, Line, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Scatter, LineChart } from 'recharts';
 import { Info, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
@@ -388,7 +388,7 @@ const TechnicalAnalysis = () => {
                         <Bar 
                           dataKey="macd" 
                           barSize={20} 
-                          fill={(entry) => entry.macd >= 0 ? "#10b981" : "#ef4444"}
+                          fill={(entry) => entry.macd >= 0 ? "#10b981" : "#ef4444" as string}
                           name="MACD Histogram"
                         />
                       </ComposedChart>
@@ -501,9 +501,7 @@ const TechnicalAnalysis = () => {
                     variant={
                       chartData[chartData.length - 1].rsi > 70 
                         ? "destructive" 
-                        : chartData[chartData.length - 1].rsi < 30 
-                          ? "default"
-                          : "secondary"
+                        : "default"
                     }
                   >
                     <AlertCircle className="h-4 w-4" />
@@ -610,10 +608,11 @@ const TechnicalAnalysis = () => {
                           );
                           
                           // Use a 14-day period for ATR
-                          const prevATR = array[index-1].atr;
-                          const atr = prevATR 
-                            ? ((prevATR * 13) + tr) / 14 
-                            : tr;
+                          let atr = tr;
+                          const prevItem = array[index-1] as any;
+                          if (prevItem && prevItem.atr !== null) {
+                            atr = ((prevItem.atr * 13) + tr) / 14;
+                          }
                           
                           return { ...item, atr };
                         })}
