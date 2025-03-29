@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { generatePerformanceMetrics } from "@/lib/mock-data";
 
 interface PerformanceMetricsProps {
@@ -52,9 +52,13 @@ export const PerformanceMetrics = ({ timeframe }: PerformanceMetricsProps) => {
               />
               <Bar 
                 dataKey="return" 
-                fill={(data: any) => data.return >= 0 ? "#10B981" : "#EF4444"}
+                fill="#10B981"
                 radius={[4, 4, 0, 0]}
-              />
+              >
+                {metricsData.monthlyReturns.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.return >= 0 ? "#10B981" : "#EF4444"} />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
