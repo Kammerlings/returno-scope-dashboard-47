@@ -6,15 +6,19 @@ ReturnoScope is a comprehensive financial portfolio management and analysis appl
 ## Key Features
 
 - **Portfolio Management**: Monitor your investments with detailed breakdowns, VaR analysis, and Expected Shortfall metrics
+  - Stock selection from predefined lists to build custom portfolios
 - **Market Intelligence**: Track real-time market prices and stay updated with relevant financial news
 - **Performance Analytics**: Compare your portfolio returns against benchmarks and other portfolios
 - **Statistical Analysis**: Deep dive into portfolio statistics with advanced analytics tools
 - **Return Forecasting**: Leverage multiple forecasting models with adjustable time horizons
+- **Technical Analysis**: Tools for day traders including moving averages, RSI, MACD, and Bollinger Bands
 - **Option Valuation**: Price derivatives using industry-standard methods like:
   - Monte Carlo Simulation
   - Finite Difference Methods
   - Binomial Trees
   - Black-Scholes-Merton Model
+  - Heston Stochastic Volatility Model
+  - Jump Diffusion Model
 
 ## Technology Stack
 

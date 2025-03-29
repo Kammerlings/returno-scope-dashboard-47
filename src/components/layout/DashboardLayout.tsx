@@ -1,6 +1,6 @@
 
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { BarChart3, Home, PieChart, TrendingUp, LineChart, NewspaperIcon, DollarSign, Calculator } from "lucide-react";
+import { BarChart3, Home, PieChart, TrendingUp, LineChart, NewspaperIcon, DollarSign, Calculator, TrendingDown } from "lucide-react";
 import { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -63,6 +63,11 @@ const AppSidebar = () => {
       title: "Analysis",
       url: "/analysis",
       icon: BarChart3,
+    },
+    {
+      title: "Technical Analysis",
+      url: "/technical-analysis",
+      icon: TrendingDown,
     },
     {
       title: "Forecasting",
