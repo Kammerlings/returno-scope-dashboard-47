@@ -1,7 +1,8 @@
 
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { BarChart3, Home, PieChart, TrendingUp, LineChart } from "lucide-react";
+import { BarChart3, Home, PieChart, TrendingUp, LineChart, NewspaperIcon, DollarSign } from "lucide-react";
 import { ReactNode } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -28,6 +29,9 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 };
 
 const AppSidebar = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
+
   // Menu items
   const items = [
     {
@@ -36,23 +40,33 @@ const AppSidebar = () => {
       icon: Home,
     },
     {
+      title: "Market Prices",
+      url: "/market-prices",
+      icon: DollarSign,
+    },
+    {
+      title: "Financial News",
+      url: "/financial-news",
+      icon: NewspaperIcon,
+    },
+    {
       title: "Portfolio",
-      url: "#",
+      url: "/portfolio",
       icon: PieChart,
     },
     {
       title: "Performance",
-      url: "#",
+      url: "/performance",
       icon: TrendingUp,
     },
     {
       title: "Analysis",
-      url: "#",
+      url: "/analysis",
       icon: BarChart3,
     },
     {
-      title: "Forecasts",
-      url: "#",
+      title: "Forecasting",
+      url: "/forecasting",
       icon: LineChart,
     },
   ];
@@ -66,11 +80,14 @@ const AppSidebar = () => {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url} className="flex items-center">
+                  <SidebarMenuButton 
+                    asChild
+                    isActive={pathname === item.url}
+                  >
+                    <Link to={item.url} className="flex items-center">
                       <item.icon className="h-5 w-5 mr-3" />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
