@@ -9,6 +9,9 @@ import NotFound from "./pages/NotFound";
 import MarketPrices from "./pages/MarketPrices";
 import FinancialNews from "./pages/FinancialNews";
 import Forecasting from "./pages/Forecasting";
+import Portfolio from "./pages/Portfolio";
+import Performance from "./pages/Performance";
+import Analysis from "./pages/Analysis";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +25,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/market-prices" element={<MarketPrices />} />
           <Route path="/financial-news" element={<FinancialNews />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/performance" element={<Performance />} />
+          <Route path="/analysis" element={<Analysis />} />
           <Route path="/forecasting" element={<Forecasting />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
