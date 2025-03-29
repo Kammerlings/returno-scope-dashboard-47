@@ -12,6 +12,7 @@ import Forecasting from "./pages/Forecasting";
 import Portfolio from "./pages/Portfolio";
 import Performance from "./pages/Performance";
 import Analysis from "./pages/Analysis";
+import Valuation from "./pages/Valuation";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/performance" element={<Performance />} />
           <Route path="/analysis" element={<Analysis />} />
           <Route path="/forecasting" element={<Forecasting />} />
+          <Route path="/valuation" element={<Valuation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
